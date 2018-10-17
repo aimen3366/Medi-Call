@@ -1,0 +1,18 @@
+#promo.jumbotron {
+  border-radius:20px;
+  padding:200px;
+  background-color:rgba(255,255,255,0.75);
+  /*max-width:800px;*/
+  background:linear-gradient(rgba(0,04,2,.7), rgba(0,4,2,.7)), url(/bg-banner.jpg);
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center center;
+  color:#fff;
+  height:450px;
+  padding-top:50px;
+}
+
+#p {
+  text-align:center;
+}
+
