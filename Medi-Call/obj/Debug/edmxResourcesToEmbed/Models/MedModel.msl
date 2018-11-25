@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MedicallModelStoreContainer" CdmEntityContainer="MedicallDB">
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="MedicallModel.Doctor">
+        <MappingFragment StoreEntitySet="Doctor">
+          <ScalarProperty Name="Contact_No" ColumnName="Contact No" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Confirm_Pssword" ColumnName="Confirm Pssword" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Speciality" ColumnName="Speciality" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Fee_Status" ColumnName="Fee Status" />
+          <ScalarProperty Name="Working_Days" ColumnName="Working Days" />
+          <ScalarProperty Name="Timings" ColumnName="Timings" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="MedicallModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Confirm_Password" ColumnName="Confirm Password" />
+          <ScalarProperty Name="Secret_Question" ColumnName="Secret Question" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
