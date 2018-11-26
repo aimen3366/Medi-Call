@@ -19,11 +19,11 @@
     <Key>
       <PropertyRef Name="Email" />
     </Key>
-    <Property Name="Email" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="Password" Type="nchar" MaxLength="10" />
-    <Property Name="Confirm Password" Type="nchar" MaxLength="10" />
-    <Property Name="Secret Question" Type="nchar" MaxLength="10" />
-    <Property Name="Answer" Type="nchar" MaxLength="10" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Confirm Password" Type="varchar" MaxLength="50" />
+    <Property Name="Secret Question" Type="varchar" MaxLength="50" />
+    <Property Name="Answer" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityContainer Name="MedicallModelStoreContainer">
     <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />

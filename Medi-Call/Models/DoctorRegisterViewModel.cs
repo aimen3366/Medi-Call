@@ -9,15 +9,54 @@ namespace Medi_Call.Models
 {
     public class DoctorRegisterViewModel
     {
+        [DataType(DataType.EmailAddress)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public string Email { get; set; }
+
+        [DataType(DataType.Password)]
+        [MinLength(6, ErrorMessage = "minimum 6 characters required")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public string Password { get; set; }
-        public string Confirm_Pssword { get; set; }
+
+        [DisplayName("Confirm Password")]
+        [DataType(DataType.Password)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
+        [Compare("Password", ErrorMessage = "Passwords do not match")]
+        public string Confirm_Password { get; set; }
+
+        [DataType(DataType.Text)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public string Name { get; set; }
+
+        [DataType(DataType.Text)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public string Speciality { get; set; }
+
+
+        [DisplayName("Contact No")]
+        [DataType(DataType.PhoneNumber)]
+        
+        [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public int Contact_No { get; set; }
+
+        [DataType(DataType.Text)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public string Location { get; set; }
+
+
+        [DisplayName("Fee Status")]
+        [DataType(DataType.PhoneNumber)]
+        
+        [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public int Fee_Status { get; set; }
+
+        [DisplayName("Working Days")]
+        [DataType(DataType.Text)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public string Working_Days { get; set; }
+
+        [DataType(DataType.Text)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public string Timings { get; set; }
 
     }

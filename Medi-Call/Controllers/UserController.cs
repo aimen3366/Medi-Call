@@ -7,110 +7,81 @@ using Medi_Call.Models;
 
 namespace Medi_Call.Controllers
 {
-    public class DoctorController : Controller
+    public class UserController : Controller
     {
-
+        // GET: User
         [HttpGet]
-        public ActionResult Register(int id = 0)
+        public ActionResult UserRegister(int id = 0)
         {
-            DoctorRegisterViewModel usermodel = new DoctorRegisterViewModel();
+            UserRegisterViewModel usermodel = new UserRegisterViewModel();
             return View(usermodel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(DoctorRegisterViewModel arg)
+        public ActionResult UserRegister(UserRegisterViewModel arg)
         {
             using (MedicallDB db = new MedicallDB())
             {
-                if (db.Doctors.Any(x => x.Email == arg.Email))
+                if (db.Users.Any(x => x.Email== arg.Email))
                 {
                     ViewBag.DuplicateMessage = "Email already exists";
-                    return View("Register", arg);
+                    return View("UserRegister", arg);
                 }
-
-                Doctor doc = new Doctor();
-                    doc.Email = arg.Email;
-                    doc.Name = arg.Name;
-                    doc.Password = arg.Password;
-                    doc.Confirm_Pssword = arg.Confirm_Password;
-                    doc.Speciality = arg.Speciality;
-                    doc.Contact_No = arg.Contact_No;
-                    doc.Location = arg.Location;
-                    doc.Fee_Status = arg.Fee_Status;
-                    doc.Working_Days = arg.Working_Days;
-                    doc.Timings = arg.Timings;
-                    db.Doctors.Add(doc);
-                    db.SaveChanges();
+                User us = new User();
+                us.Email = arg.Email;
+                us.Password = arg.Password;
+                us.Confirm_Password = arg.Confirm_Password;
+                us.Secret_Question = arg.Secret_Question;
+                us.Answer = arg.Answer;
+                db.Users.Add(us);
+                db.SaveChanges();
                 ViewBag.SuccessMessage = "Registeration successful";
             }
-            
-            ModelState.Clear();  
-            return View("Register", new DoctorRegisterViewModel());
+          
+            ModelState.Clear();
+            return View("UserRegister", new UserRegisterViewModel());
 
         }
 
         [HttpGet]
-        public ActionResult Login(int id = 0)
+        public ActionResult UserLogin(int id = 0)
         {
-            DoctorLoginViewModel usermodel = new DoctorLoginViewModel();
+            UserLoginViewModel usermodel = new UserLoginViewModel();
             return View(usermodel);
         }
 
         [HttpPost]
-        public ActionResult Login(DoctorLoginViewModel usermodel)
+        public ActionResult UserLogin(UserLoginViewModel usermodel)
         {
             using (MedicallDB db = new MedicallDB())
             {
 
-                if (db.Doctors.Any(x => x.Email == usermodel.Email && x.Password == usermodel.Password))
+                if (db.Users.Any(x => x.Email == usermodel.Email && x.Password == usermodel.Password))
                 {
 
                     ViewBag.SuccessMessage = "Login Successful";
 
-                    return View("Portal", new DocPortalViewModel());
+                    return View("UserPortal", new UserPortalViewModel());
                 }
                 ViewBag.LoginErrorMessage = "Wrong Email and password";
-                return View("Login", new DoctorLoginViewModel());
+                return View("UserLogin", new UserLoginViewModel());
             }
         }
 
 
-        public ActionResult DocPortal(int id = 0)
-        {
-            DocPortalViewModel doc = new DocPortalViewModel();
-            return View(doc);
-        }
-
-
-
-
-
-
-
-
-
-
-
-        // GET: Doctor
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: Doctor/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Doctor/Create
+        // GET: User/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Doctor/Create
+        // POST: User/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -126,13 +97,13 @@ namespace Medi_Call.Controllers
             }
         }
 
-        // GET: Doctor/Edit/5
+        // GET: User/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Doctor/Edit/5
+        // POST: User/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -148,13 +119,13 @@ namespace Medi_Call.Controllers
             }
         }
 
-        // GET: Doctor/Delete/5
+        // GET: User/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Doctor/Delete/5
+        // POST: User/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

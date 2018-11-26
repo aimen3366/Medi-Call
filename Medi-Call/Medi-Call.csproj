@@ -201,6 +201,7 @@
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -231,6 +232,9 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>MedModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserLoginViewModel.cs" />
+    <Compile Include="Models\UserPortalViewModel.cs" />
+    <Compile Include="Models\UserRegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -312,6 +316,9 @@
     <Content Include="Views\Doctor\Register.cshtml" />
     <Content Include="Views\Doctor\Login.cshtml" />
     <Content Include="Views\Doctor\Portal.cshtml" />
+    <Content Include="Views\User\UserRegister.cshtml" />
+    <Content Include="Views\User\UserPortal.cshtml" />
+    <Content Include="Views\User\UserLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
