@@ -1,5 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="MedicallModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Medicall.dbo.Blood' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Blood">
+          <Property Name="Name" Type="nchar" MaxLength="10" />
+          <Property Name="Blood Group" Type="nchar" MaxLength="10" />
+          <Property Name="Contact No" Type="int" />
+          <Property Name="Location" Type="nchar" MaxLength="10" />
+        </EntityType>-->
   <EntityType Name="Doctor">
     <Key>
       <PropertyRef Name="Email" />
@@ -15,6 +30,15 @@
     <Property Name="Working Days" Type="varchar" MaxLength="50" />
     <Property Name="Timings" Type="varchar" MaxLength="50" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Medicall.dbo.Lab' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Lab">
+          <Property Name="Name" Type="nchar" MaxLength="10" />
+          <Property Name="Contact" Type="int" />
+          <Property Name="Location" Type="nchar" MaxLength="10" />
+          <Property Name="Working Days" Type="nchar" MaxLength="10" />
+          <Property Name="Timings" Type="datetime" />
+        </EntityType>-->
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Email" />
@@ -26,6 +50,7 @@
     <Property Name="Answer" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityContainer Name="MedicallModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

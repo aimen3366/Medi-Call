@@ -28,5 +28,13 @@
   <EntityContainer Name="MedicallDB" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Doctors" EntityType="Self.Doctor" />
     <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Admins" EntityType="MedicallModel.Admin" />
   </EntityContainer>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

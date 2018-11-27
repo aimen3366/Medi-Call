@@ -7,6 +7,7 @@
       <Diagram DiagramId="bd0e3c781c5f4650bc270c23bd11511d" Name="Diagram1">
         <EntityTypeShape EntityType="MedicallModel.Doctor" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MedicallModel.User" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicallModel.Admin" Width="1.5" PointX="3.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
