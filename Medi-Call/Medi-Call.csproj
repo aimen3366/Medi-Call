@@ -219,6 +219,10 @@
     <Compile Include="Models\DoctorLoginViewModel.cs" />
     <Compile Include="Models\DoctorRegisterViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Lab.cs">
+      <DependentUpon>MedModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LabViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MedModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -231,6 +235,11 @@
       <DependentUpon>MedModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MedModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MedModel1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MedModel.edmx</DependentUpon>
@@ -268,6 +277,7 @@
     </Content>
     <EntityDeploy Include="Models\MedModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MedModel1.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Models\MedModel.edmx.diagram">
       <DependentUpon>MedModel.edmx</DependentUpon>
@@ -326,9 +336,15 @@
     <Content Include="Views\User\UserLogin.cshtml" />
     <Content Include="Views\Admin\AdminLogin.cshtml" />
     <Content Include="Views\Admin\AdminPortal.cshtml" />
+    <Content Include="Views\Admin\AddLab.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\contactform\" />
+    <Folder Include="Content\css\" />
+    <Folder Include="Content\fonts\" />
+    <Folder Include="Content\img\" />
+    <Folder Include="Content\js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

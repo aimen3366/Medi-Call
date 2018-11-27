@@ -1,7 +1,8 @@
 ﻿@model Medi_Call.Models.DoctorRegisterViewModel
 
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Join as Doctor";
+
 }
 
 <h2>Register</h2>
@@ -12,7 +13,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>DoctorRegisterViewModel</h4>
+      
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -50,9 +51,21 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Speciality, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Speciality, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Speciality, "", new { @class = "text-danger" })
-            </div>
+              
+                    <select class="form-control" name="Speciality">
+                        <option value=""></option>
+                        <option value="Cardiac Surgeon">Cardiac Surgeon</option>
+                        <option value="Neuro Surgeon">Neuro Surgeon</option>
+                        <option value="Ear, throat and Nose">Ear throat and Nose</option>
+                        <option value="Child Specialist">Child Specialist</option>
+                        <option value="Dermotologist">Dermotologist</option>
+                        <option value="Gynecologist">gynecologist</option>
+                        <option value="Eye Specialist">Eye Specialist</option>
+
+                    </select>
+                    @Html.EditorFor(model => model.Speciality, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Speciality, "", new { @class = "text-danger" })
+                </div>
         </div>
 
         <div class="form-group">
@@ -97,20 +110,16 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Register" class="btn btn-default" />
             </div>
         </div>
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-2">
-            <label class="label-success">@ViewBag.SuccessMessage</label>
+            <label class="label">@ViewBag.SuccessMessage</label>
         </div>
     </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-2">
-            <label class="label-danger">@ViewBag.DuplicateMessage</label>
-        </div>
-    </div>
+  
 }
 
 <div>

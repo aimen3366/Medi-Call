@@ -36,5 +36,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Labs">
+      <EntityTypeMapping TypeName="MedicallModel.Lab">
+        <MappingFragment StoreEntitySet="Lab">
+          <ScalarProperty Name="Timings" ColumnName="Timings" />
+          <ScalarProperty Name="Working_Days" ColumnName="Working Days" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

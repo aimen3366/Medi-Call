@@ -2,8 +2,18 @@
 <html>
 <head>
     <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MediCall</title>
+    <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+    <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - MediCall</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -20,12 +30,7 @@
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <!-- =======================================================
-          Theme Name: Medilab
-          Theme URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
-          Author: BootstrapMade.com
-          Author URL: https://bootstrapmade.com
-        ======================================================= -->
+
     </head>
 
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -54,140 +59,66 @@
                         </div>
                     </div>
                 </nav>
-                <div class="container">
-                    <div class="row">
-                        <div class="banner-info">
-                            <div class="banner-logo text-center">
 
-                            </div>
-                            <div class="banner-text text-center">
-                                <h1 class="white">MediCall</h1>
-                                <p>Healthcare at your desk!</p>
-                                <a href="#contact" class="btn btn-appoint">Make an Appointment.</a>
-                            </div>
-                            <div class="overlay-detail text-center">
-                                <a href="#service"><i class="fa fa-angle-down"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--/ banner-->
-        <!--service-->
-        <section id="service" class="section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <h2 class="ser-title">Our Service</h2>
-                        <hr class="botm-line">
-                        <p>
-                            We provides access to all your nearby doctors and labs and provide information about their location and time. You can book an appointment from your home.
-                        </p>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                        <div class="service-info">
-                            <div class="icon">
-                                <i class="fa fa-stethoscope"></i>
-                            </div>
-                            <div class="icon-info">
-                                <h4>24 Hour Support</h4>
-                                <p>We provide you 24 hour support.</p>
-                            </div>
-                        </div>
-                        <div class="service-info">
-                            <div class="icon">
-                                <i class="fa fa-ambulance"></i>
-                            </div>
-                            <div class="icon-info">
-                                <h4>Emergency Services</h4>
-                                <p>In case of emergency you can check which doctor and lab is available and book an appointment beforehand in minutes.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                        <div class="service-info">
-                            <div class="icon">
-                                <i class="fa fa-user-md"></i>
-                            </div>
-                            <div class="icon-info">
-                                <h4>Medical Counseling</h4>
-                                <p>You can get medical counseling by reading health blogs that are uploaded by qualified doctors.</p>
-                            </div>
-                        </div>
-                        <div class="service-info">
-                            <div class="icon">
-                                <i class="fa fa-medkit"></i>
-                            </div>
-                            <div class="icon-info">
-                                <h4>Premium Healthcare</h4>
-                                <p>Premium healthcare is provided to you by giving you access to the best qualified doctors and labs.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--/ service-->
-        <!--cta-->
         <div> @RenderBody() </div>
         <!--footer-->
-        <footer id="footer">
-            <div class="top-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-4 marb20">
-                            <div class="ftr-tle">
-                                <h4 class="white no-padding">About Us</h4>
+                <div class="top-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 marb20">
+                                <div class="ftr-tle">
+                                    <h4 class="white no-padding">About Us</h4>
+                                </div>
+                                <div class="info-sec">
+                                    <p>Praesent convallis tortor et enim laoreet, vel consectetur purus latoque penatibus et dis parturient.</p>
+                                </div>
                             </div>
-                            <div class="info-sec">
-                                <p>We provide premium heathcare by linking you to qualified doctors and labs.</p>
+                            <div class="col-md-4 col-sm-4 marb20">
+                                <div class="ftr-tle">
+                                    <h4 class="white no-padding">Quick Links</h4>
+                                </div>
+                                <div class="info-sec">
+                                    <ul class="quick-info">
+                                        <li><a href="index.html"><i class="fa fa-circle"></i>Home</a></li>
+                                        <li><a href="#service"><i class="fa fa-circle"></i>Service</a></li>
+                                        <li><a href="#contact"><i class="fa fa-circle"></i>Appointment</a></li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4 marb20">
-                            <div class="ftr-tle">
-                                <h4 class="white no-padding">Quick Links</h4>
-                            </div>
-                            <div class="info-sec">
-                                <ul class="quick-info">
-                                    <li><a href="index.html"><i class="fa fa-circle"></i>Home</a></li>
-                                    <li><a href="#service"><i class="fa fa-circle"></i>Service</a></li>
-                                    <li><a href="#contact"><i class="fa fa-circle"></i>Appointment</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-4 marb20">
-                            <div class="ftr-tle">
-                                <h4 class="white no-padding">Follow us</h4>
-                            </div>
-                            <div class="info-sec">
-                                <ul class="social-icon">
-                                    <li class="bglight-blue"><i class="fa fa-facebook"></i></li>
-                                    <li class="bgred"><i class="fa fa-google-plus"></i></li>
-                                    <li class="bgdark-blue"><i class="fa fa-linkedin"></i></li>
-                                    <li class="bglight-blue"><i class="fa fa-twitter"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-line">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                           
-                                <!--
-                              All the links in the footer should remain intact.
-                              You can delete the links only if you purchased the pro version.
-                              Licensing information: https://bootstrapmade.com/license/
-                              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Medilab
-                            -->
+                            <div class="col-md-4 col-sm-4 marb20">
+                                <div class="ftr-tle">
+                                    <h4 class="white no-padding">Follow us</h4>
+                                </div>
+                                <div class="info-sec">
+                                    <ul class="social-icon">
+                                        <li class="bglight-blue"><i class="fa fa-facebook"></i></li>
+                                        <li class="bgred"><i class="fa fa-google-plus"></i></li>
+                                        <li class="bgdark-blue"><i class="fa fa-linkedin"></i></li>
+                                        <li class="bglight-blue"><i class="fa fa-twitter"></i></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="footer-line">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                © Copyright Medilab Theme. All Rights Reserved
+                                <div class="credits">
+                                    <!--
+                          All the links in the footer should remain intact.
+                          You can delete the links only if you purchased the pro version.
+                          Licensing information: https://bootstrapmade.com/license/
+                          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Medilab
+                        -->
+                                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </footer>
         <!--/ footer-->
 

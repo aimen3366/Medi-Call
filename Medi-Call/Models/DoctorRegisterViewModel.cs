@@ -24,38 +24,34 @@ namespace Medi_Call.Models
         [Compare("Password", ErrorMessage = "Passwords do not match")]
         public string Confirm_Password { get; set; }
 
-        [DataType(DataType.Text)]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public string Name { get; set; }
 
-        [DataType(DataType.Text)]
+       
         [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public string Speciality { get; set; }
 
 
         [DisplayName("Contact No")]
-        [DataType(DataType.PhoneNumber)]
-        
+        [DataType(DataType.PhoneNumber)]     
         [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public int Contact_No { get; set; }
 
-        [DataType(DataType.Text)]
+        
         [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public string Location { get; set; }
 
 
         [DisplayName("Fee Status")]
-        [DataType(DataType.PhoneNumber)]
-        
         [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public int Fee_Status { get; set; }
 
         [DisplayName("Working Days")]
-        [DataType(DataType.Text)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public string Working_Days { get; set; }
 
-        [DataType(DataType.Text)]
+  
         [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public string Timings { get; set; }
 

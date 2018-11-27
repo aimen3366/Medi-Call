@@ -1,7 +1,7 @@
 ﻿@model Medi_Call.Models.AdminLoginViewModel
 
 @{
-    ViewBag.Title = "AdminLogin";
+    ViewBag.Title = "Admin Login";
 }
 
 <h2>AdminLogin</h2>
@@ -11,7 +11,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>AdminLoginViewModel</h4>
+        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -38,12 +38,12 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-2">
-            <label class="label-success">@ViewBag.SuccessMessage</label>
+            <label class="label">@ViewBag.SuccessMessage</label>
         </div>
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-2">
-            <label class="label-danger">@ViewBag.DuplicateMessage</label>
+            <label class="label">@ViewBag.DuplicateMessage</label>
         </div>
     </div>
 }

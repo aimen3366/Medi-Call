@@ -34,6 +34,42 @@ namespace Medi_Call.Controllers
             }
         }
 
+        public ActionResult AddLab(int id = 0)
+        {
+            LabViewModel usermodel = new LabViewModel();
+            return View(usermodel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddLab(LabViewModel arg)
+        {
+            using (MedicallDB db = new MedicallDB())
+            {
+                Lab lb = new Lab();
+                lb.Name = arg.Name;
+                lb.Contact = arg.Contact;
+                lb.Location = arg.Location;
+                lb.Working_Days = arg.Working_Days;
+                lb.Timings = arg.Timings;
+                db.Labs.Add(lb);
+                db.SaveChanges();
+                ViewBag.SuccessMessage = "Lab Added";
+            }
+
+            ModelState.Clear();
+            return View("AddLab", new LabViewModel());
+        }
+
+        public ActionResult AllLabs()
+        {
+            MedicallDB r = new MedicallDB();
+            var data = r.Labs.ToList();
+            ViewBag.userdetails = data;
+            return View();
+        }
+
+
         // GET: Admin/Details/5
         public ActionResult Details(int id)
         {
