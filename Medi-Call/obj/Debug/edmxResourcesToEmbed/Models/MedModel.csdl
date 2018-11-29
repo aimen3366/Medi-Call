@@ -30,6 +30,7 @@
     <EntitySet Name="Users" EntityType="Self.User" />
     <EntitySet Name="Admins" EntityType="MedicallModel.Admin" />
     <EntitySet Name="Labs" EntityType="MedicallModel.Lab" />
+    <EntitySet Name="Bloods" EntityType="MedicallModel.Blood" />
   </EntityContainer>
   <EntityType Name="Admin">
     <Key>
@@ -47,5 +48,14 @@
     <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Working_Days" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Timings" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Blood">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Blood_Group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Contact_No" Type="Int32" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

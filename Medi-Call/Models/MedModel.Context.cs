@@ -29,5 +29,6 @@ namespace Medi_Call.Models
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Lab> Labs { get; set; }
+        public virtual DbSet<Blood> Bloods { get; set; }
     }
 }

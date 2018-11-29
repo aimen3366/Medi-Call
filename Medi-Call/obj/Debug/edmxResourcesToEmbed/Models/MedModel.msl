@@ -47,5 +47,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Bloods">
+      <EntityTypeMapping TypeName="MedicallModel.Blood">
+        <MappingFragment StoreEntitySet="Blood">
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Contact_No" ColumnName="Contact No" />
+          <ScalarProperty Name="Blood_Group" ColumnName="Blood Group" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

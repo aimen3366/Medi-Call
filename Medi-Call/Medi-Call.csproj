@@ -199,6 +199,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BloodController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -212,6 +213,10 @@
     </Compile>
     <Compile Include="Models\AdminLoginViewModel.cs" />
     <Compile Include="Models\AdminPortalView.cs" />
+    <Compile Include="Models\Blood.cs">
+      <DependentUpon>MedModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BloodViewModel.cs" />
     <Compile Include="Models\DocPortalViewModel.cs" />
     <Compile Include="Models\Doctor.cs">
       <DependentUpon>MedModel.tt</DependentUpon>
@@ -337,6 +342,7 @@
     <Content Include="Views\Admin\AdminLogin.cshtml" />
     <Content Include="Views\Admin\AdminPortal.cshtml" />
     <Content Include="Views\Admin\AddLab.cshtml" />
+    <Content Include="Views\Blood\BloodDonor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
