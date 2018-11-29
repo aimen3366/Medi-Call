@@ -35,11 +35,11 @@
     <Key>
       <PropertyRef Name="Name" />
     </Key>
-    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Contact" Type="int" />
-    <Property Name="Location" Type="varchar" MaxLength="50" />
-    <Property Name="Working Days" Type="varchar" MaxLength="50" />
-    <Property Name="Timings" Type="varchar" MaxLength="50" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" />
+    <Property Name="Working Days" Type="nvarchar" MaxLength="50" />
+    <Property Name="Timings" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="User">
     <Key>

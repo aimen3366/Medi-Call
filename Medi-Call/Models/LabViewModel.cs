@@ -16,6 +16,7 @@ namespace Medi_Call.Models
         [DisplayName("Contact")]
         [DataType(DataType.PhoneNumber)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
+      
         public int Contact { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]

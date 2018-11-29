@@ -43,11 +43,11 @@
     <Key>
       <PropertyRef Name="Name" />
     </Key>
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Contact" Type="Int32" />
-    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Working_Days" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Timings" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Working_Days" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Timings" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Blood">
     <Key>

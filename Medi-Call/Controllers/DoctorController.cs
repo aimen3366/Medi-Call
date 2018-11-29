@@ -4,6 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Medi_Call.Models;
+using System.Net;
+using System.Data.Entity.Validation;
+using System.Data;
+using System.Data.Entity;
+
 
 namespace Medi_Call.Controllers
 {

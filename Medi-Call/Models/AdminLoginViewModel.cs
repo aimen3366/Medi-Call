@@ -16,5 +16,6 @@ namespace Medi_Call.Models
         [DataType(DataType.Password)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
         public string Password { get; set; }
+        public bool RememberMe { get; set; }
     }
 }
