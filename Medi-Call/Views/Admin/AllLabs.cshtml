@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Medi_Call.Models.Lab>
+
+@{
+    ViewBag.Title = "AllLabs";
+}
+
+<h2>All Labs</h2>
+
+<style>
+    {
+        border-collapse: collapse;
+    }
+
+    td,th {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: left;
+    }
+</style>
+<div align="right" style="vertical-align:bottom">
+    <div align="center" style="vertical-align:bottom">
+
+        <table cellpadding="10" ,"table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Contact)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Working_Days)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Timings)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contact)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Working_Days)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Timings)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Name }) |
+                        @Html.ActionLink("Verify", "Details", new { id = item.Name }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Name })
+                        
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
