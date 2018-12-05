@@ -31,7 +31,7 @@ namespace Medi_Call.Controllers
                 var v = db.Admins.Where(x => x.Email == login.Email && x.Password == login.Password).FirstOrDefault();
                 if (v != null)
                 {
-                    int timeout = login.RememberMe? 525600 : 20;
+                    int timeout = login.RememberMe ? 525600 : 20;
                     var ticket = new FormsAuthenticationTicket(login.Email, login.RememberMe, timeout);
                     string encrypted = FormsAuthentication.Encrypt(ticket);
                     var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encrypted);
@@ -99,15 +99,7 @@ namespace Medi_Call.Controllers
 
         }
 
-
-
-       
-
-        public ActionResult AllLabs()
-        {
-            MedicallDB db = new MedicallDB();
-            return View(db.Labs.ToList());
-        }
+    
 
         [HttpGet]
         public ActionResult DocRegister(int id = 0)
@@ -117,10 +109,10 @@ namespace Medi_Call.Controllers
         }
 
         [HttpPost]
-        public ActionResult DocRegister( AdminAddDoc c)
+        public ActionResult DocRegister(AdminAddDoc c)
         {
-            
-            using (MedicallDB db = new MedicallDB()) 
+
+            using (MedicallDB db = new MedicallDB())
             {
                 if (ModelState.IsValid)
                 {
@@ -141,8 +133,8 @@ namespace Medi_Call.Controllers
                     db.Doctors.Add(doc);
                     db.SaveChanges();
                     ViewBag.SuccessMessage = "Registeration successful";
-                   
-            }
+
+                }
                 else
                 {
                     ViewBag.DuplicateMessage = "Unsuccessful";
@@ -157,8 +149,97 @@ namespace Medi_Call.Controllers
             return View(db.Doctors.ToList());
         }
 
-       
+        public ActionResult AllLabs()
+        {
+            MedicallDB db = new MedicallDB();
+            return View(db.Labs.ToList());
+        }
 
+        public ActionResult LDetails(string id)
+        {
+            MedicallDB db = new MedicallDB();
+          var product = db.Labs.Where(p => p.Name == id).FirstOrDefault();
+            
+            if (product == null)
+            {
+                return new HttpNotFoundResult();
+            }
+            LabViewModel model = new LabViewModel()
+            {
+               Name = product.Name,
+               
+                Location = product.Location,
+                Working_Days = product.Working_Days,
+                Timings=product.Timings,
+                
+            };
+            return View(model);
+        }
+        //[HttpGet]
+        //public ActionResult DeleteLab(string id1)
+        //{
+        //    using (MedicallDB db = new MedicallDB())
+        //    {
+        //        if (id1 == null)
+        //        {
+        //            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //        }
+        //        Lab user = db.Labs.Find(id1);
+        //        if (user == null)
+        //        {
+        //            return HttpNotFound();
+        //        }
+        //        return View(user);
+        //    }
+        //}
+        //[HttpPost, ActionName("DeleteLab")]
+        //public ActionResult DeleteConfirmed(string id)
+        //{
+        //    try
+        //    {
+        //        using (MedicallDB db = new MedicallDB())
+        //        {
+        //            Lab user = db.Labs.Where(a => a.Name== id).FirstOrDefault();
+        //            db.Labs.Remove(user);
+        //            db.SaveChanges();
+        //        }
+        //        return RedirectToAction("AllLabs");
+        //    }
+        //    catch
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //}
+        MedicallDB db = new MedicallDB();
+        public ActionResult DeleteLab(string id)
+        {
+            
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Lab personalDetail = db.Labs.Find(id);
+            if (personalDetail == null)
+            {
+                return HttpNotFound();
+            }
+            return View(personalDetail);
+        }
 
+        // POST: PersonalDetails/Delete/5
+        [HttpPost, ActionName("DeleteLab")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(string id)
+        { 
+            Lab personalDetail = db.Labs.Find(id);
+            db.Labs.Remove(personalDetail);
+            db.SaveChanges();
+            return RedirectToAction("AllLabs");
+        }
     }
-}
+
+       
+       
+       
+    }
+

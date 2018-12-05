@@ -14,7 +14,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
-        
+       
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -27,15 +27,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Location)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fee_Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Working_Days)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Timings)
-        </th>
+        
         <th></th>
     </tr>
 
@@ -44,7 +36,6 @@
         <td>
             @Html.DisplayFor(modelItem => item.Email)
         </td>
-        
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
@@ -57,15 +48,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Location)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fee_Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Working_Days)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Timings)
-        </td>
+        
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Email }) |
             @Html.ActionLink("Details", "Details", new { id=item.Email }) |
