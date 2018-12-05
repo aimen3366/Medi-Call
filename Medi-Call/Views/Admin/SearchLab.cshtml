@@ -3,6 +3,12 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<p>
+    @using (Html.BeginForm("SearchLab", "Admin", FormMethod.Get))
+    {
+        @Html.TextBox("search") <input type="submit" value="Search" />
+    }
+</p>
 <table class="table">
     <tr>
         <th>
@@ -11,7 +17,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Contact)
         </th>
-       
+        
         <th></th>
     </tr>
 
@@ -23,7 +29,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Contact)
         </td>
-        
+      
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Name }) |
             @Html.ActionLink("Details", "LDetails", new { id=item.Name }) |

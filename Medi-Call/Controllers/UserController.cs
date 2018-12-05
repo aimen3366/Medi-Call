@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity.Infrastructure;
 using Medi_Call.Models;
+using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace Medi_Call.Controllers
 {
@@ -45,29 +50,71 @@ namespace Medi_Call.Controllers
         }
 
         [HttpGet]
-        public ActionResult UserLogin(int id = 0)
+        public ActionResult ULogin(int id = 0)
         {
-            UserLoginViewModel usermodel = new UserLoginViewModel();
-            return View(usermodel);
+            UserLoginViewModel ad = new UserLoginViewModel();
+            return View(ad);
         }
 
         [HttpPost]
-        public ActionResult UserLogin(UserLoginViewModel usermodel)
+        public ActionResult ULogin(UserLoginViewModel login, string ReturnUrl = "")
         {
+            string message = "";
             using (MedicallDB db = new MedicallDB())
             {
-
-                if (db.Users.Any(x => x.Email == usermodel.Email && x.Password == usermodel.Password))
+                var v = db.Users.Where(x => x.Email == login.Email && x.Password == login.Password).FirstOrDefault();
+                if (v != null)
                 {
+                    int timeout = login.RememberMe ? 525600 : 20;
+                    var ticket = new FormsAuthenticationTicket(login.Email, login.RememberMe, timeout);
+                    string encrypted = FormsAuthentication.Encrypt(ticket);
+                    var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encrypted);
+                    cookie.Expires = DateTime.Now.AddMinutes(timeout);
+                    cookie.HttpOnly = true;
+                    Response.Cookies.Add(cookie);
 
-                    ViewBag.SuccessMessage = "Login Successful";
-
-                    return View("UserPortal", new UserPortalViewModel());
+                    if (Url.IsLocalUrl(ReturnUrl))
+                    {
+                        return Redirect(ReturnUrl);
+                    }
+                    else
+                    {
+                        return View("UserPortal", new UserPortalViewModel());
+                    }
                 }
-                ViewBag.LoginErrorMessage = "Wrong Email and password";
-                return View("UserLogin", new UserLoginViewModel());
+                else
+                {
+                    message = "Incorrect Email or Password!";
+                }
+                ViewBag.Message = message;
+                return View();
             }
         }
+
+        //[HttpGet]
+        //public ActionResult UserLogin(int id = 0)
+        //{
+        //    UserLoginViewModel usermodel = new UserLoginViewModel();
+        //    return View(usermodel);
+        //}
+
+        //[HttpPost]
+        //public ActionResult UserLogin(UserLoginViewModel usermodel)
+        //{
+        //    using (MedicallDB db = new MedicallDB())
+        //    {
+
+        //        if (db.Users.Any(x => x.Email == usermodel.Email && x.Password == usermodel.Password))
+        //        {
+
+        //            ViewBag.SuccessMessage = "Login Successful";
+
+        //            return View("UserPortal", new UserPortalViewModel());
+        //        }
+        //        ViewBag.LoginErrorMessage = "Wrong Email and password";
+        //        return View("UserLogin", new UserLoginViewModel());
+        //    }
+        //}
 
 
         public ActionResult Details(int id)

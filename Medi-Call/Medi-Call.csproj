@@ -342,11 +342,17 @@
     <Content Include="Views\User\UserLogin.cshtml" />
     <Content Include="Views\Admin\AdminPortal.cshtml" />
     <Content Include="Views\Blood\BloodDonor.cshtml" />
-    <Content Include="Views\Admin\AllLabs.cshtml" />
     <Content Include="Views\Admin\AdminLogin.cshtml" />
     <Content Include="Views\Admin\Register.cshtml" />
     <Content Include="Views\Admin\DocRegister.cshtml" />
     <Content Include="Views\Admin\AllDoc.cshtml" />
+    <Content Include="Views\Admin\AllLabs.cshtml" />
+    <Content Include="Views\Admin\LDetails.cshtml" />
+    <Content Include="Views\Admin\DeleteLab.cshtml" />
+    <Content Include="Views\User\ULogin.cshtml" />
+    <Content Include="Views\Admin\SearchLab.cshtml" />
+    <Content Include="Views\Admin\DoctorDetails.cshtml" />
+    <Content Include="Views\Admin\DeleteDoctor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
