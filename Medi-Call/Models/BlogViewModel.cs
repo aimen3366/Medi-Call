@@ -7,16 +7,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Medi_Call.Models
 {
-    public class UserLoginViewModel
+    public class BlogViewModel
     {
-        [DataType(DataType.EmailAddress)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
-        public string Email { get; set; }
+        public string Title { get; set; }
 
-        [DataType(DataType.Password)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "This field is required")]
-        public string Password { get; set; }
-        public bool RememberMe { get; set; }
+        public string Paragraph { get; set; }
 
+        public string Uploaded_By { get; set; }
     }
 }

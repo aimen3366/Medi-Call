@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity.Infrastructure;
 using Medi_Call.Models;
+using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace Medi_Call.Controllers
 {
@@ -45,100 +50,103 @@ namespace Medi_Call.Controllers
         }
 
         [HttpGet]
-        public ActionResult UserLogin(int id = 0)
+        public ActionResult ULogin(int id = 0)
         {
-            UserLoginViewModel usermodel = new UserLoginViewModel();
-            return View(usermodel);
+            UserLoginViewModel ad = new UserLoginViewModel();
+            return View(ad);
         }
 
         [HttpPost]
-        public ActionResult UserLogin(UserLoginViewModel usermodel)
+        public ActionResult ULogin(UserLoginViewModel login, string ReturnUrl = "")
         {
+            string message = "";
             using (MedicallDB db = new MedicallDB())
             {
-
-                if (db.Users.Any(x => x.Email == usermodel.Email && x.Password == usermodel.Password))
+                var v = db.Users.Where(x => x.Email == login.Email && x.Password == login.Password).FirstOrDefault();
+                if (v != null)
                 {
+                    int timeout = login.RememberMe ? 525600 : 20;
+                    var ticket = new FormsAuthenticationTicket(login.Email, login.RememberMe, timeout);
+                    string encrypted = FormsAuthentication.Encrypt(ticket);
+                    var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encrypted);
+                    cookie.Expires = DateTime.Now.AddMinutes(timeout);
+                    cookie.HttpOnly = true;
+                    Response.Cookies.Add(cookie);
 
-                    ViewBag.SuccessMessage = "Login Successful";
-
-                    return View("UserPortal", new UserPortalViewModel());
+                    if (Url.IsLocalUrl(ReturnUrl))
+                    {
+                        return Redirect(ReturnUrl);
+                    }
+                    else
+                    {
+                        return View("UserPortal", new UserPortalViewModel());
+                    }
                 }
-                ViewBag.LoginErrorMessage = "Wrong Email and password";
-                return View("UserLogin", new UserLoginViewModel());
-            }
-        }
-
-
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: User/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: User/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
+                else
+                {
+                    message = "Incorrect Email or Password!";
+                }
+                ViewBag.Message = message;
                 return View();
             }
         }
 
-        // GET: User/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Search(string loc,string sp)
         {
-            return View();
+            MedicallDB db = new MedicallDB();
+            return View(db.Doctors.Where(x => x.Location == loc && x.Speciality ==sp ).ToList());
         }
 
-        // POST: User/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult SearchLab(string lc)
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            MedicallDB db = new MedicallDB();
+            return View(db.Labs.Where(x => x.Location == lc).ToList());
         }
 
-        // GET: User/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult LDetails(string id)
         {
-            return View();
+            MedicallDB db = new MedicallDB();
+            var product = db.Labs.Where(p => p.Name == id).FirstOrDefault();
+
+            if (product == null)
+            {
+                return new HttpNotFoundResult();
+            }
+            LabViewModel model = new LabViewModel()
+            {
+                Name = product.Name,
+
+                Location = product.Location,
+                Working_Days = product.Working_Days,
+                Timings = product.Timings,
+
+            };
+            ModelState.Clear();
+
+            return View(model);
         }
 
-        // POST: User/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Appointment(string id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            MedicallDB db = new MedicallDB();
+            var doc = db.Doctors.Where(p => p.Name == id).FirstOrDefault();
 
-                return RedirectToAction("Index");
-            }
-            catch
+            if (doc == null)
             {
-                return View();
+                return new HttpNotFoundResult();
             }
+            DoctorRegisterViewModel model = new DoctorRegisterViewModel()
+            {
+                Name=doc.Name,
+                Email = doc.Email,
+                Contact_No = Convert.ToInt32(doc.Contact_No),
+                Speciality = doc.Speciality,
+                Location = doc.Location,
+                Fee_Status = Convert.ToInt32(doc.Fee_Status),
+                Working_Days = doc.Working_Days,
+                Timings = doc.Timings,
+            };
+            return View(model);
         }
     }
 }

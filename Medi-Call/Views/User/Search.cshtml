@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Medi_Call.Models.Doctor>
+
+
+<p>
+    @using (Html.BeginForm("Search", "User", FormMethod.Get))
+
+    {
+
+
+       @Html.TextBox("loc")
+
+        @Html.TextBox("sp")
+
+
+
+        <input type="submit" value="Search" />
+    }
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+     
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+      
+        <td>
+            
+            @Html.ActionLink("Appointment", "Appointment", new { id=item.Name }) |
+            
+        </td>
+    </tr>
+}
+
+</table>
