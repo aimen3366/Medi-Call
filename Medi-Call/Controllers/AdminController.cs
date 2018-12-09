@@ -99,7 +99,11 @@ namespace Medi_Call.Controllers
 
         }
 
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 7723d63cff5eb55c8aa73c342e184cb8c06d5ccc
 
         [HttpGet]
         public ActionResult DocRegister(int id = 0)
@@ -155,6 +159,7 @@ namespace Medi_Call.Controllers
             MedicallDB db = new MedicallDB();
             return View(db.Labs.ToList());
         }
+<<<<<<< HEAD
 
         public ActionResult LDetails(string id)
         {
@@ -243,10 +248,73 @@ namespace Medi_Call.Controllers
         public ActionResult DeleteDoctor(string id)
         {
 
+=======
+
+        public ActionResult LDetails(string id)
+        {
+            MedicallDB db = new MedicallDB();
+          var product = db.Labs.Where(p => p.Name == id).FirstOrDefault();
+            
+            if (product == null)
+            {
+                return new HttpNotFoundResult();
+            }
+            LabViewModel model = new LabViewModel()
+            {
+               Name = product.Name,
+               
+                Location = product.Location,
+                Working_Days = product.Working_Days,
+                Timings=product.Timings,
+                
+            };
+            return View(model);
+        }
+        //[HttpGet]
+        //public ActionResult DeleteLab(string id1)
+        //{
+        //    using (MedicallDB db = new MedicallDB())
+        //    {
+        //        if (id1 == null)
+        //        {
+        //            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //        }
+        //        Lab user = db.Labs.Find(id1);
+        //        if (user == null)
+        //        {
+        //            return HttpNotFound();
+        //        }
+        //        return View(user);
+        //    }
+        //}
+        //[HttpPost, ActionName("DeleteLab")]
+        //public ActionResult DeleteConfirmed(string id)
+        //{
+        //    try
+        //    {
+        //        using (MedicallDB db = new MedicallDB())
+        //        {
+        //            Lab user = db.Labs.Where(a => a.Name== id).FirstOrDefault();
+        //            db.Labs.Remove(user);
+        //            db.SaveChanges();
+        //        }
+        //        return RedirectToAction("AllLabs");
+        //    }
+        //    catch
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //}
+        MedicallDB db = new MedicallDB();
+        public ActionResult DeleteLab(string id)
+        {
+            
+>>>>>>> 7723d63cff5eb55c8aa73c342e184cb8c06d5ccc
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+<<<<<<< HEAD
             Doctor doc = db.Doctors.Find(id);
             if (doc == null)
             {
@@ -267,7 +335,30 @@ namespace Medi_Call.Controllers
         }
 
 
+=======
+            Lab personalDetail = db.Labs.Find(id);
+            if (personalDetail == null)
+            {
+                return HttpNotFound();
+            }
+            return View(personalDetail);
+        }
+
+        // POST: PersonalDetails/Delete/5
+        [HttpPost, ActionName("DeleteLab")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(string id)
+        { 
+            Lab personalDetail = db.Labs.Find(id);
+            db.Labs.Remove(personalDetail);
+            db.SaveChanges();
+            return RedirectToAction("AllLabs");
+        }
+>>>>>>> 7723d63cff5eb55c8aa73c342e184cb8c06d5ccc
     }
 
+       
+       
+       
     }
 
