@@ -81,17 +81,64 @@ namespace Medi_Call.Controllers
                     {
                         return View("UserPortal", new UserPortalViewModel());
                     }
+<<<<<<< HEAD
                 }
                 else
                 {
                     message = "Incorrect Email or Password!";
                 }
+=======
+                }
+                else
+                {
+                    message = "Incorrect Email or Password!";
+                }
+>>>>>>> 67e6b90f616d0ee635916be293e0b027fb52fdf3
                 ViewBag.Message = message;
                 return View();
             }
         }
 
         public ActionResult Search(string loc,string sp)
+<<<<<<< HEAD
+=======
+        {
+            MedicallDB db = new MedicallDB();
+            return View(db.Doctors.Where(x => x.Location == loc && x.Speciality ==sp ).ToList());
+        }
+
+        public ActionResult LoadLocation()
+        {
+            List<SelectListItem> li = new List<SelectListItem>();
+            li.Add(new SelectListItem { Text = "Select", Value = "0" });
+            li.Add(new SelectListItem { Text = "Johar Town", Value = "1" });
+            li.Add(new SelectListItem { Text = "Model Town", Value = "2" });
+            li.Add(new SelectListItem { Text = "DHA", Value = "3" });
+            li.Add(new SelectListItem { Text = "Garden Town", Value = "4" });
+            li.Add(new SelectListItem { Text = "Bahria", Value = "5" });
+            li.Add(new SelectListItem { Text = "Allama Iqbal Town", Value = "6" });
+            ViewData["loc"] = li;
+            return View();
+        }
+
+        public ActionResult LoadSpeciality()
+        {
+            List<SelectListItem> li = new List<SelectListItem>();
+            li.Add(new SelectListItem { Text = "Select", Value = "0" });
+            li.Add(new SelectListItem { Text = "Cardiac Surgeon", Value = "1" });
+            li.Add(new SelectListItem { Text = "Neuro Surgeon", Value = "2" });
+            li.Add(new SelectListItem { Text = "Child Specialist", Value = "3" });
+            li.Add(new SelectListItem { Text = "Dermatologist", Value = "4" });
+            li.Add(new SelectListItem { Text = "Gynecologist", Value = "5" });
+            li.Add(new SelectListItem { Text = "Ear, Throat, Nose", Value = "6" });
+            ViewData["sp"] = li;
+            return View();
+        }
+
+
+
+        public ActionResult Details(int id)
+>>>>>>> 67e6b90f616d0ee635916be293e0b027fb52fdf3
         {
             MedicallDB db = new MedicallDB();
             return View(db.Doctors.Where(x => x.Location == loc && x.Speciality ==sp ).ToList());

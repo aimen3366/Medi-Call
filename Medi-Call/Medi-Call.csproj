@@ -348,6 +348,10 @@
     <Content Include="Views\Admin\AdminLogin.cshtml" />
     <Content Include="Views\Admin\Register.cshtml" />
     <Content Include="Views\Admin\DocRegister.cshtml" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 67e6b90f616d0ee635916be293e0b027fb52fdf3
     <Content Include="Views\Admin\AllLabs.cshtml" />
     <Content Include="Views\Admin\LDetails.cshtml" />
     <Content Include="Views\Admin\DeleteLab.cshtml" />
@@ -357,10 +361,20 @@
     <Content Include="Views\Admin\DeleteDoctor.cshtml" />
     <Content Include="Views\Admin\SearchDoctor.cshtml" />
     <Content Include="Views\User\Search.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\User\SearchLab.cshtml" />
     <Content Include="Views\User\LDetails.cshtml" />
     <Content Include="Views\User\Appointment.cshtml" />
     <Content Include="Views\Doctor\Write.cshtml" />
+=======
+=======
+    <Content Include="Views\Admin\AllDoc.cshtml" />
+    <Content Include="Views\Admin\SearchDoc.cshtml" />
+    <Content Include="Views\Admin\AllLabs.cshtml" />
+    <Content Include="Views\Admin\LDetails.cshtml" />
+    <Content Include="Views\Admin\DeleteLab.cshtml" />
+>>>>>>> 7723d63cff5eb55c8aa73c342e184cb8c06d5ccc
+>>>>>>> 67e6b90f616d0ee635916be293e0b027fb52fdf3
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
