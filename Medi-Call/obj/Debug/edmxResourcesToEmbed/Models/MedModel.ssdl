@@ -7,14 +7,22 @@
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="Blood">
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="Title" />
+    </Key>
+    <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Paragraph" Type="varchar(max)" />
+    <Property Name="Uploaded By" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BloodDonor">
     <Key>
       <PropertyRef Name="Name" />
     </Key>
     <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Blood Group" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
     <Property Name="Contact No" Type="int" />
-    <Property Name="Location" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Doctor">
     <Key>
@@ -35,11 +43,11 @@
     <Key>
       <PropertyRef Name="Name" />
     </Key>
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Contact" Type="int" />
-    <Property Name="Location" Type="nvarchar" MaxLength="50" />
-    <Property Name="Working Days" Type="nvarchar" MaxLength="50" />
-    <Property Name="Timings" Type="nvarchar" MaxLength="50" />
+    <Property Name="Location" Type="varchar" MaxLength="50" />
+    <Property Name="Working Days" Type="varchar" MaxLength="50" />
+    <Property Name="Timings" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -53,7 +61,8 @@
   </EntityType>
   <EntityContainer Name="MedicallModelStoreContainer">
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Blood" EntityType="Self.Blood" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BloodDonor" EntityType="Self.BloodDonor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lab" EntityType="Self.Lab" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />

@@ -81,16 +81,31 @@ namespace Medi_Call.Controllers
                     {
                         return View("UserPortal", new UserPortalViewModel());
                     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
                 }
                 else
                 {
                     message = "Incorrect Email or Password!";
                 }
+=======
+>>>>>>> a11dc09e91a98dac70189bba16610f7c357cb838
+                }
+                else
+                {
+                    message = "Incorrect Email or Password!";
+                }
+<<<<<<< HEAD
+=======
+>>>>>>> 67e6b90f616d0ee635916be293e0b027fb52fdf3
+>>>>>>> a11dc09e91a98dac70189bba16610f7c357cb838
                 ViewBag.Message = message;
                 return View();
             }
         }
 
+<<<<<<< HEAD
         //[HttpGet]
         //public ActionResult UserLogin(int id = 0)
         //{
@@ -116,76 +131,103 @@ namespace Medi_Call.Controllers
         //    }
         //}
 
+=======
+        public ActionResult Search(string loc,string sp)
+<<<<<<< HEAD
+=======
+        {
+            MedicallDB db = new MedicallDB();
+            return View(db.Doctors.Where(x => x.Location == loc && x.Speciality ==sp ).ToList());
+        }
+>>>>>>> a11dc09e91a98dac70189bba16610f7c357cb838
+
+        public ActionResult LoadLocation()
+        {
+            List<SelectListItem> li = new List<SelectListItem>();
+            li.Add(new SelectListItem { Text = "Select", Value = "0" });
+            li.Add(new SelectListItem { Text = "Johar Town", Value = "1" });
+            li.Add(new SelectListItem { Text = "Model Town", Value = "2" });
+            li.Add(new SelectListItem { Text = "DHA", Value = "3" });
+            li.Add(new SelectListItem { Text = "Garden Town", Value = "4" });
+            li.Add(new SelectListItem { Text = "Bahria", Value = "5" });
+            li.Add(new SelectListItem { Text = "Allama Iqbal Town", Value = "6" });
+            ViewData["loc"] = li;
+            return View();
+        }
+
+        public ActionResult LoadSpeciality()
+        {
+            List<SelectListItem> li = new List<SelectListItem>();
+            li.Add(new SelectListItem { Text = "Select", Value = "0" });
+            li.Add(new SelectListItem { Text = "Cardiac Surgeon", Value = "1" });
+            li.Add(new SelectListItem { Text = "Neuro Surgeon", Value = "2" });
+            li.Add(new SelectListItem { Text = "Child Specialist", Value = "3" });
+            li.Add(new SelectListItem { Text = "Dermatologist", Value = "4" });
+            li.Add(new SelectListItem { Text = "Gynecologist", Value = "5" });
+            li.Add(new SelectListItem { Text = "Ear, Throat, Nose", Value = "6" });
+            ViewData["sp"] = li;
+            return View();
+        }
+
+
 
         public ActionResult Details(int id)
+>>>>>>> 67e6b90f616d0ee635916be293e0b027fb52fdf3
         {
-            return View();
+            MedicallDB db = new MedicallDB();
+            return View(db.Doctors.Where(x => x.Location == loc && x.Speciality ==sp ).ToList());
         }
 
-        // GET: User/Create
-        public ActionResult Create()
+        public ActionResult SearchLab(string lc)
         {
-            return View();
+            MedicallDB db = new MedicallDB();
+            return View(db.Labs.Where(x => x.Location == lc).ToList());
         }
 
-        // POST: User/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult LDetails(string id)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            MedicallDB db = new MedicallDB();
+            var product = db.Labs.Where(p => p.Name == id).FirstOrDefault();
 
-                return RedirectToAction("Index");
-            }
-            catch
+            if (product == null)
             {
-                return View();
+                return new HttpNotFoundResult();
             }
+            LabViewModel model = new LabViewModel()
+            {
+                Name = product.Name,
+
+                Location = product.Location,
+                Working_Days = product.Working_Days,
+                Timings = product.Timings,
+
+            };
+            ModelState.Clear();
+
+            return View(model);
         }
 
-        // GET: User/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Appointment(string id)
         {
-            return View();
-        }
+            MedicallDB db = new MedicallDB();
+            var doc = db.Doctors.Where(p => p.Name == id).FirstOrDefault();
 
-        // POST: User/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
+            if (doc == null)
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                return new HttpNotFoundResult();
             }
-            catch
+            DoctorRegisterViewModel model = new DoctorRegisterViewModel()
             {
-                return View();
-            }
-        }
-
-        // GET: User/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: User/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+                Name=doc.Name,
+                Email = doc.Email,
+                Contact_No = Convert.ToInt32(doc.Contact_No),
+                Speciality = doc.Speciality,
+                Location = doc.Location,
+                Fee_Status = Convert.ToInt32(doc.Fee_Status),
+                Working_Days = doc.Working_Days,
+                Timings = doc.Timings,
+            };
+            return View(model);
         }
     }
 }

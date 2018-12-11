@@ -12,11 +12,10 @@ namespace Medi_Call.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Blood
+    public partial class Blog
     {
-        public string Name { get; set; }
-        public string Blood_Group { get; set; }
-        public Nullable<int> Contact_No { get; set; }
-        public string Location { get; set; }
+        public string Title { get; set; }
+        public string Paragraph { get; set; }
+        public string Uploaded_By { get; set; }
     }
 }

@@ -47,11 +47,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Bloods">
-      <EntityTypeMapping TypeName="MedicallModel.Blood">
-        <MappingFragment StoreEntitySet="Blood">
-          <ScalarProperty Name="Location" ColumnName="Location" />
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="MedicallModel.Blog">
+        <MappingFragment StoreEntitySet="Blog">
+          <ScalarProperty Name="Uploaded_By" ColumnName="Uploaded By" />
+          <ScalarProperty Name="Paragraph" ColumnName="Paragraph" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BloodDonors">
+      <EntityTypeMapping TypeName="MedicallModel.BloodDonor">
+        <MappingFragment StoreEntitySet="BloodDonor">
           <ScalarProperty Name="Contact_No" ColumnName="Contact No" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Blood_Group" ColumnName="Blood Group" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>

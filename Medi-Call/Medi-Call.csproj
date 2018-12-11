@@ -199,7 +199,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\BloodController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -214,7 +213,11 @@
     <Compile Include="Models\AdminAddDoc.cs" />
     <Compile Include="Models\AdminLoginViewModel.cs" />
     <Compile Include="Models\AdminPortalView.cs" />
-    <Compile Include="Models\Blood.cs">
+    <Compile Include="Models\Blog.cs">
+      <DependentUpon>MedModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogViewModel.cs" />
+    <Compile Include="Models\BloodDonor.cs">
       <DependentUpon>MedModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\BloodViewModel.cs" />
@@ -345,7 +348,10 @@
     <Content Include="Views\Admin\AdminLogin.cshtml" />
     <Content Include="Views\Admin\Register.cshtml" />
     <Content Include="Views\Admin\DocRegister.cshtml" />
-    <Content Include="Views\Admin\AllDoc.cshtml" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 67e6b90f616d0ee635916be293e0b027fb52fdf3
     <Content Include="Views\Admin\AllLabs.cshtml" />
     <Content Include="Views\Admin\LDetails.cshtml" />
     <Content Include="Views\Admin\DeleteLab.cshtml" />
@@ -353,6 +359,32 @@
     <Content Include="Views\Admin\SearchLab.cshtml" />
     <Content Include="Views\Admin\DoctorDetails.cshtml" />
     <Content Include="Views\Admin\DeleteDoctor.cshtml" />
+    <Content Include="Views\Admin\SearchDoctor.cshtml" />
+    <Content Include="Views\User\Search.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\User\SearchLab.cshtml" />
+    <Content Include="Views\User\LDetails.cshtml" />
+    <Content Include="Views\User\Appointment.cshtml" />
+    <Content Include="Views\Doctor\Write.cshtml" />
+=======
+=======
+    <Content Include="Views\Admin\AllDoc.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\Admin\AllLabs.cshtml" />
+    <Content Include="Views\Admin\LDetails.cshtml" />
+    <Content Include="Views\Admin\DeleteLab.cshtml" />
+    <Content Include="Views\User\ULogin.cshtml" />
+    <Content Include="Views\Admin\SearchLab.cshtml" />
+    <Content Include="Views\Admin\DoctorDetails.cshtml" />
+    <Content Include="Views\Admin\DeleteDoctor.cshtml" />
+=======
+    <Content Include="Views\Admin\SearchDoc.cshtml" />
+    <Content Include="Views\Admin\AllLabs.cshtml" />
+    <Content Include="Views\Admin\LDetails.cshtml" />
+    <Content Include="Views\Admin\DeleteLab.cshtml" />
+>>>>>>> 7723d63cff5eb55c8aa73c342e184cb8c06d5ccc
+>>>>>>> 67e6b90f616d0ee635916be293e0b027fb52fdf3
+>>>>>>> a11dc09e91a98dac70189bba16610f7c357cb838
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

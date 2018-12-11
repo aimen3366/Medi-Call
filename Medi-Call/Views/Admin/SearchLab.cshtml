@@ -1,7 +1,11 @@
 ﻿@model IEnumerable<Medi_Call.Models.Lab>
 
 <p>
+<<<<<<< HEAD
     @Html.ActionLink("Create New", "Create")
+=======
+    @Html.ActionLink("Create New", "Register","Admin")
+>>>>>>> a11dc09e91a98dac70189bba16610f7c357cb838
 </p>
 <p>
     @using (Html.BeginForm("SearchLab", "Admin", FormMethod.Get))
@@ -14,10 +18,14 @@
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
+<<<<<<< HEAD
         <th>
             @Html.DisplayNameFor(model => model.Contact)
         </th>
         
+=======
+    
+>>>>>>> a11dc09e91a98dac70189bba16610f7c357cb838
         <th></th>
     </tr>
 
@@ -26,12 +34,19 @@
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
+<<<<<<< HEAD
         <td>
             @Html.DisplayFor(modelItem => item.Contact)
         </td>
       
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Name }) |
+=======
+     
+      
+        <td>
+     
+>>>>>>> a11dc09e91a98dac70189bba16610f7c357cb838
             @Html.ActionLink("Details", "LDetails", new { id=item.Name }) |
             @Html.ActionLink("Delete", "DeleteLab", new { id=item.Name })
         </td>
